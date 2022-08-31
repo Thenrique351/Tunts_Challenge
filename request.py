@@ -5,7 +5,7 @@ def request_url(url):
     request = requests.get(url)
     data = request.json()#Json open 
 
-    resp = []
+    country_list = []
 
     for i in data:
         x = i.get('name')
@@ -24,6 +24,6 @@ def request_url(url):
         else:
             currencies = '-' 
         dicionario = {'Name': country, 'Capital': capital, 'Area': area, 'Currencies': currencies}
-        resp.append(dicionario)#Add object in list, on format {Name, Capital, Area, Currencies}
+        country_list.append(dicionario)#Add object in list, on format {Name, Capital, Area, Currencies}
     
-    return resp #Return  Json objects by name, capital, area and currencies in list of  dictionary python format
+    return country_list #Return  Json objects by name, capital, area and currencies in list of  dictionary python format
